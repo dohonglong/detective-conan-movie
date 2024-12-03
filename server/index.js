@@ -44,6 +44,7 @@ mongoose
     dbName: "detective_conan",
     serverSelectionTimeoutMS: 30000, // 30 seconds
     socketTimeoutMS: 45000, // 45 seconds
+    autoIndex: false,
   })
   .then(() => console.log("Connected to data sign in"))
   .catch((error) => {
@@ -54,11 +55,9 @@ mongoose
 mongoose.connection.on("connected", () => {
   console.log("Mongoose connected to DB");
 });
-
 mongoose.connection.on("error", (err) => {
   console.error("Mongoose connection error:", err);
 });
-
 mongoose.connection.on("disconnected", () => {
   console.log("Mongoose disconnected");
 });
@@ -96,6 +95,17 @@ app.post("/register", async (req, resp) => {
     }
   } catch (e) {
     resp.send("Something Went Wrong");
+  }
+});
+
+app.get("/dbtest", async (req, res) => {
+  try {
+    const isConnected = mongoose.connection.readyState === 1;
+    res.send(
+      `Database connection: ${isConnected ? "Connected" : "Not Connected"}`
+    );
+  } catch (error) {
+    res.status(500).send(`Error: ${error.message}`);
   }
 });
 
