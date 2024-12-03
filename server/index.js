@@ -9,11 +9,8 @@ app.use(express.json());
 app.use(cors());
 app.get("/", (req, resp) => {
   resp.send("App is Working");
-  // You can check backend is working or not by
-  // entering http://loacalhost:5000
-
-  // If you see App is working means
-  // backend working properly
+  // You can check backend is working or not by entering http://loacalhost:5000
+  // If you see App is working means backend working properly
 });
 
 // Replace the following with your Atlas connection string
@@ -21,27 +18,34 @@ const url = `${process.env.MONGO_URI}`;
 
 // Connect to your Atlas cluster
 const client = new MongoClient(url);
-async function run() {
+const run = async () => {
   try {
     await client.connect();
     console.log("Successfully connected to Atlas");
+    // database and collection code goes here
+    const db = client.db("detective_conan");
+    const coll = db.collection("movies");
+    // find code goes here
+    const cursor = coll.find();
+    // iterate code goes here
+    await cursor.forEach(console.log);
   } catch (err) {
     console.log(err.stack);
   } finally {
     await client.close();
   }
-}
+};
 run().catch(console.dir);
 
 // To connect with your mongoDB database
 const mongoose = require("mongoose");
 mongoose
   .connect(`${process.env.MONGO_URI}`, {
-    dbName: "yourDB-name",
+    dbName: "detective_conan",
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("Connected to conan-movies"))
+  .then(() => console.log("Connected to data sign in"))
   .catch((error) => {
     console.log(error);
   });
@@ -81,4 +85,5 @@ app.post("/register", async (req, resp) => {
     resp.send("Something Went Wrong");
   }
 });
+
 app.listen(5000);

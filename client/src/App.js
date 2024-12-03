@@ -1,46 +1,24 @@
-import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import DataSignIn from "./components/DataSignIn";
+import ConanMovie from "./components/ConanMovie";
 
 const App = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const handleOnSubmit = async (event) => {
-    event.preventDefault();
-    let result = await fetch("http://localhost:5000/register", {
-      method: "post",
-      body: JSON.stringify({ name, email }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    result = await result.json();
-    console.warn(result);
-    if (result) {
-      alert("Data saved succesfully");
-      setEmail("");
-      setName("");
-    }
-  };
   return (
-    <>
-      <h1>This is React WebApp </h1>
-      <form action="">
-        <input
-          type="text"
-          placeholder="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="submit" onClick={handleOnSubmit}>
-          submit
-        </button>
-      </form>
-    </>
+    <div>
+      <nav>
+        <Link className="navBarLink" to="/">
+          Register
+        </Link>
+        <Link className="navBarLink" to="/conan">
+          Conan Movie
+        </Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<DataSignIn />} />
+        <Route path="/conan" element={<ConanMovie />} />
+      </Routes>
+    </div>
   );
 };
 
