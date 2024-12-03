@@ -28,7 +28,7 @@ const run = async () => {
     // find code goes here
     const cursor = coll.find();
     // iterate code goes here
-    await cursor.forEach(console.log);
+    //await cursor.forEach(console.log);
   } catch (err) {
     console.log(err.stack);
   } finally {
@@ -43,11 +43,25 @@ mongoose
   .connect(`${process.env.MONGO_URI}`, {
     dbName: "detective_conan",
     serverSelectionTimeoutMS: 30000, // 30 seconds
+    socketTimeoutMS: 45000, // 45 seconds
   })
   .then(() => console.log("Connected to data sign in"))
   .catch((error) => {
-    console.log(error);
+    console.error("MongoDB connection error:", error);
+    process.exit(1);
   });
+
+mongoose.connection.on("connected", () => {
+  console.log("Mongoose connected to DB");
+});
+
+mongoose.connection.on("error", (err) => {
+  console.error("Mongoose connection error:", err);
+});
+
+mongoose.connection.on("disconnected", () => {
+  console.log("Mongoose disconnected");
+});
 
 // Schema for users of app
 const UserSchema = new mongoose.Schema({
