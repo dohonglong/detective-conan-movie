@@ -7,7 +7,7 @@ const DataSignIn = () => {
   const ApiURL = process.env.REACT_APP_API_URL;
   const url = `${ApiURL}/register`;
   const handleOnSubmit = async (event) => {
-    console.log(url);
+    //console.log(url);
     event.preventDefault();
     let result = await fetch(url, {
       method: "post",
@@ -17,7 +17,7 @@ const DataSignIn = () => {
       },
     });
     result = await result.json();
-    console.warn(result);
+    //console.warn(result);
     if (result) {
       alert(name + " " + email + " | Data saved succesfully");
       setEmail("");

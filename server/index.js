@@ -1,41 +1,20 @@
 // For backend and express
-const { MongoClient } = require("mongodb");
+//const { MongoClient } = require("mongodb");
 require("dotenv").config();
 const express = require("express");
-const app = express();
 const cors = require("cors");
-console.log("App listen at port 5000");
-app.use(express.json());
+
+const app = express();
 app.use(cors());
-app.get("/", (req, resp) => {
-  resp.send("HELLO, BB HÔM NAY TỚI CHƠI NÀY");
-  // You can check backend is working or not by entering http://loacalhost:5000
-  // If you see App is working means backend working properly
-});
+app.use(express.json());
 
 // Replace the following with your Atlas connection string
 const url = `${process.env.MONGO_URI}`;
 
-// Connect to your Atlas cluster
-const client = new MongoClient(url);
-const run = async () => {
-  try {
-    await client.connect();
-    console.log("Successfully connected to Atlas");
-    // database and collection code goes here
-    const db = client.db("detective_conan");
-    const coll = db.collection("movies");
-    // find code goes here
-    const cursor = coll.find();
-    // iterate code goes here
-    //await cursor.forEach(console.log);
-  } catch (err) {
-    console.log(err.stack);
-  } finally {
-    await client.close();
-  }
-};
-run().catch(console.dir);
+// Check if the app is working or not
+app.get("/", (req, resp) => {
+  resp.send("HELLO, BB HÔM NAY TỚI CHƠI NÀY");
+});
 
 // To connect with your mongoDB database
 const mongoose = require("mongoose");
@@ -52,6 +31,39 @@ mongoose
     process.exit(1);
   });
 
+// MOVIE TABS
+//Schema for movies
+const MovieSchema = new mongoose.Schema({
+  number: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  original_title: {
+    type: String,
+    required: true,
+  },
+});
+const Movie = mongoose.model("Movie", MovieSchema);
+
+// API to fetch movies
+app.get("/api/movies", async (req, res) => {
+  try {
+    //console.log("Successfully connected to Atlas");
+    const movies = await Movie.find();
+    //console.log(movies);
+    res.json(movies);
+  } catch (error) {
+    console.log(error.stack); // Log error only on the backend
+    res.status(500).json({ error: "Error fetching data" });
+  }
+});
+
+// USERS TAB
 // Schema for users of app
 const UserSchema = new mongoose.Schema({
   name: {
@@ -71,6 +83,7 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model("users", UserSchema);
 User.createIndexes();
 
+// This is for register part
 app.post("/register", async (req, resp) => {
   try {
     const user = new User(req.body);
@@ -88,4 +101,6 @@ app.post("/register", async (req, resp) => {
   }
 });
 
-app.listen(5000);
+app.listen(5000, () => {
+  console.log("App listening at port 5000");
+});
