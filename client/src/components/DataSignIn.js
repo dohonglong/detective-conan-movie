@@ -4,9 +4,10 @@ import { useState } from "react";
 const DataSignIn = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const ApiURL = process.env.REACT_APP_API_URL;
   const handleOnSubmit = async (event) => {
     event.preventDefault();
-    let result = await fetch("http://localhost:5000/register", {
+    let result = await fetch(`${ApiURL}/register`, {
       method: "post",
       body: JSON.stringify({ name, email }),
       headers: {

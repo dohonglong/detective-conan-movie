@@ -8,7 +8,7 @@ console.log("App listen at port 5000");
 app.use(express.json());
 app.use(cors());
 app.get("/", (req, resp) => {
-  resp.send("App is Working");
+  resp.send("HELLO, BB HÔM NAY TỚI CHƠI NÀY");
   // You can check backend is working or not by entering http://loacalhost:5000
   // If you see App is working means backend working properly
 });
