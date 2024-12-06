@@ -4,9 +4,10 @@ import { useState } from "react";
 const DataSignIn = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const ApiURL = process.env.REACT_APP_API_URL;
-  const url = `${ApiURL}/register`;
+
   const handleOnSubmit = async (event) => {
+    const ApiURL = process.env.REACT_APP_API_URL;
+    const url = `${ApiURL}/register`;
     //console.log(url);
     event.preventDefault();
     let result = await fetch(url, {

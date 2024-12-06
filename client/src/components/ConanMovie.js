@@ -3,13 +3,12 @@ import React, { useEffect, useState } from "react";
 const ConanMovie = () => {
   const [movies, setMovies] = useState([]);
 
-  // const ApiURL = process.env.REACT_APP_API_URL;
-  // const url = `${ApiURL}/register`;
-
   useEffect(() => {
+    const ApiURL = process.env.REACT_APP_API_URL;
+    const url = `${ApiURL}/api/movies`;
     const fetchMovies = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/movies");
+        const response = await fetch(url);
         const data = await response.json();
         //console.log(data);
         setMovies(data);
