@@ -1,4 +1,12 @@
 import React, { useEffect, useState } from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 const ConanMovie = () => {
   const [movies, setMovies] = useState([]);
@@ -22,20 +30,33 @@ const ConanMovie = () => {
   }, []);
 
   return (
-    <div>
+    <div className="center">
       <h1>Conan Movie</h1>
-      <ul>
-        {movies.length > 0 ? (
-          movies.map((movie, index) => (
-            <li key={index}>
-              <h3>{movie.title}</h3>
-              <h4>{movie.original_title}</h4>
-            </li>
-          ))
-        ) : (
-          <p>Loading movies... </p>
-        )}
-      </ul>
+
+      {movies.length > 0 ? (
+        <TableContainer>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">Movie</TableCell>
+                <TableCell align="center">Title</TableCell>
+                <TableCell align="center">Airdate</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {movies.map((movie) => (
+                <TableRow key={movie.movie}>
+                  <TableCell align="center">{movie.movie}</TableCell>
+                  <TableCell>{movie.title}</TableCell>
+                  <TableCell>{movie.release_date}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <p>Loading movies... </p>
+      )}
     </div>
   );
 };
