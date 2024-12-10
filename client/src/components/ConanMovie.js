@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  Link,
   Table,
   TableBody,
   TableCell,
@@ -47,7 +48,15 @@ const ConanMovie = () => {
               {movies.map((movie) => (
                 <TableRow key={movie.movie}>
                   <TableCell align="center">{movie.movie}</TableCell>
-                  <TableCell>{movie.title}</TableCell>
+                  <TableCell>
+                    <Link
+                      href={`/movie/${movie.title}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {movie.title}
+                    </Link>
+                  </TableCell>
                   <TableCell>{movie.release_date}</TableCell>
                 </TableRow>
               ))}
