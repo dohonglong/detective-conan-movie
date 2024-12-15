@@ -21,8 +21,8 @@ const mongoose = require("mongoose");
 mongoose
   .connect(`${process.env.MONGO_URI}`, {
     dbName: "detective_conan",
-    serverSelectionTimeoutMS: 30000, // 30 seconds
-    socketTimeoutMS: 45000, // 45 seconds
+    // serverSelectionTimeoutMS: 30000, // 30 seconds
+    // socketTimeoutMS: 45000, // 45 seconds
     autoIndex: false,
   })
   .then(() => console.log("Connected to data sign in"))
@@ -65,41 +65,41 @@ app.get("/api/movies", async (req, res) => {
 
 // USERS TAB
 // Schema for users of app
-const UserSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-});
-const User = mongoose.model("users", UserSchema);
-User.createIndexes();
+// const UserSchema = new mongoose.Schema({
+//   name: {
+//     type: String,
+//     required: true,
+//   },
+//   email: {
+//     type: String,
+//     required: true,
+//     unique: true,
+//   },
+//   date: {
+//     type: Date,
+//     default: Date.now,
+//   },
+// });
+// const User = mongoose.model("users", UserSchema);
+// User.createIndexes();
 
-// This is for register part
-app.post("/register", async (req, resp) => {
-  try {
-    const user = new User(req.body);
-    let result = await user.save();
-    result = result.toObject();
-    if (result) {
-      delete result.password;
-      resp.send(req.body);
-      console.log(result);
-    } else {
-      console.log("User already register");
-    }
-  } catch (e) {
-    resp.send("Something Went Wrong");
-  }
-});
+// // This is for register part
+// app.post("/register", async (req, resp) => {
+//   try {
+//     const user = new User(req.body);
+//     let result = await user.save();
+//     result = result.toObject();
+//     if (result) {
+//       delete result.password;
+//       resp.send(req.body);
+//       console.log(result);
+//     } else {
+//       console.log("User already register");
+//     }
+//   } catch (e) {
+//     resp.send("Something Went Wrong");
+//   }
+// });
 
 app.listen(5000, () => {
   console.log("App listening at port 5000");
