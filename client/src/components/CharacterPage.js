@@ -9,12 +9,11 @@ const Character = () => {
   const [error, setError] = useState(null); // Error state
 
   useEffect(() => {
+    const ApiURL = process.env.REACT_APP_API_URL;
     const fetchCharacter = async () => {
       try {
         // Fetch the character details by ID from the backend
-        const response = await fetch(
-          `http://localhost:5000/api/character/${characterID}`
-        );
+        const response = await fetch(`${ApiURL}/api/character/${characterID}`);
         if (!response.ok) {
           throw new Error("Failed to fetch character");
         }
