@@ -6,12 +6,10 @@ import {
   TableCell,
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const OneMovie = () => {
-  const { id } = useParams();
-  //   const ID = parseInt(id);
-  //   const id = 5;
+const Movie = () => {
+  const { movieID } = useParams();
   const [movie, setMovie] = useState(null); // Store movie data
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
@@ -20,7 +18,9 @@ const OneMovie = () => {
     const fetchMovie = async () => {
       try {
         // Fetch the movie details by ID from the backend
-        const response = await fetch(`http://localhost:5000/api/movie/${id}`);
+        const response = await fetch(
+          `http://localhost:5000/api/movie/${movieID}`
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch movie");
         }
@@ -35,7 +35,7 @@ const OneMovie = () => {
       }
     };
     fetchMovie();
-  }, [id]);
+  }, [movieID]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -54,7 +54,12 @@ const OneMovie = () => {
                 variant="head"
                 style={{ fontWeight: "bold" }}
               >
-                Movie {movie.movie}
+                Movie {movie._id}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell colSpan={2} align="center">
+                <img src={movie.poster_url} alt="poster" height={500} />
               </TableCell>
             </TableRow>
             <TableRow>
@@ -73,40 +78,28 @@ const OneMovie = () => {
             </TableRow>
             <TableRow>
               <TableCell variant="head">Japanese Title</TableCell>
-              <TableCell>{movie.original_title}</TableCell>
+              <TableCell>
+                {movie.original_title.map((title, index) => (
+                  <div key={index}>{title}</div>
+                ))}
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell variant="head">Orignial Airdate</TableCell>
               <TableCell>{movie.release_date}</TableCell>
             </TableRow>
-            <TableRow>
-              <TableCell
-                colSpan={2}
-                align="center"
-                variant="head"
-                style={{ fontWeight: "bold" }}
-              >
-                Case
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell variant="head">Cast</TableCell>
-              <TableCell>
-                {movie.characters.map((character, index) => (
-                  <div key={index}>{character}</div>
-                ))}
-              </TableCell>
-            </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
-      <ul>
-        {/* {movie.characters.map((character, index) => (
-          <li key={index}>{character}</li>
-        ))} */}
-      </ul>
+      <h3 style={{ textAlign: "center" }}>Cast</h3>
+
+      {movie.characters.map((character, index) => (
+        <Link key={index} to={`/character/${character._id}`}>
+          <div>{character.name}</div>
+        </Link>
+      ))}
     </div>
   );
 };
 
-export default OneMovie;
+export default Movie;

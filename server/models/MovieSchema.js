@@ -16,32 +16,23 @@ const MovieSchema = new mongoose.Schema(
       required: true,
     },
     original_title: {
-      type: String,
+      type: [String],
       required: true,
     },
     overview: {
       type: String,
     },
-    media_type: {
-      type: String,
-    },
-    adult: {
-      type: Boolean,
-    },
-    original_language: {
-      type: String,
-    },
-    release_date: {
-      type: String,
-      required: true,
-    },
-    theme_song: {
-      type: String,
-    },
-    characters: {
-      type: [String],
-      required: true,
-    },
+    media_type: { type: String },
+    adult: { type: Boolean },
+    original_language: { type: String },
+    release_date: { type: String },
+    theme_song: { type: String },
+    characters: [
+      {
+        type: Number,
+        ref: "Character",
+      },
+    ],
   },
   {
     versionKey: false,

@@ -9,7 +9,7 @@ import {
   TableRow,
 } from "@mui/material";
 
-const ConanMovie = () => {
+const MovieList = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -46,13 +46,12 @@ const ConanMovie = () => {
             </TableHead>
             <TableBody>
               {movies.map((movie) => (
-                <TableRow key={movie.movie}>
-                  <TableCell align="center">{movie.movie}</TableCell>
+                <TableRow key={movie._id}>
+                  <TableCell align="center">{movie._id}</TableCell>
                   <TableCell>
                     <Link
-                      to={`/movie/${movie.movie}`}
-                      target="_blank"
-                      // rel="noopener noreferrer"
+                      to={`/movie/${movie._id}`}
+                      //target="_blank"
                     >
                       {movie.title}
                     </Link>
@@ -70,4 +69,4 @@ const ConanMovie = () => {
   );
 };
 
-export default ConanMovie;
+export default MovieList;

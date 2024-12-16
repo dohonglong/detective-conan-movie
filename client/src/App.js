@@ -1,25 +1,22 @@
 import { Routes, Route, Link } from "react-router-dom";
-// import DataSignIn from "./components/DataSignIn";
-import ConanMovie from "./components/ConanMovie";
-import OneMovie from "./components/OneMovie";
+import MovieListPage from "./components/MovieListPage";
+import MoviePage from "./components/MoviePage";
+import CharacterPage from "./components/CharacterPage";
 
 const App = () => {
   return (
     <div>
       <nav>
-        {/* <Link className="navBarLink" to="/">
-          Register
-        </Link> */}
-        <Link className="navBarLink" to="/conan">
+        <Link className="navBarLink" to="/movies_list">
           Conan Movie
         </Link>
       </nav>
 
       <Routes>
-        {/* <Route path="/" element={<DataSignIn />} /> */}
-        <Route path="/" element={<ConanMovie />} />
-        <Route path="/conan" element={<ConanMovie />} />
-        <Route path="/movie/:id" element={<OneMovie />} />
+        <Route path="/" element={<MovieListPage />} />
+        <Route path="/movies_list" element={<MovieListPage />} />
+        <Route path="/movie/:movieID" element={<MoviePage />} />
+        <Route path="/character/:characterID" element={<CharacterPage />} />
       </Routes>
     </div>
   );

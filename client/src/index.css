@@ -25,6 +25,7 @@ body {
   width: 70vw; /* Takes 70% of the screen width */
   margin: 0 auto; /* Optional: Center horizontally */
   text-align: justify; /* Optional: Center the content */
+  padding-bottom: 30px; /* Just leave that for now */
 }
 
 code {
