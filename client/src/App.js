@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 // import DataSignIn from "./components/DataSignIn";
 import ConanMovie from "./components/ConanMovie";
+import OneMovie from "./components/OneMovie";
 
 const App = () => {
   return (
@@ -16,7 +17,9 @@ const App = () => {
 
       <Routes>
         {/* <Route path="/" element={<DataSignIn />} /> */}
+        <Route path="/" element={<ConanMovie />} />
         <Route path="/conan" element={<ConanMovie />} />
+        <Route path="/movie/:id" element={<OneMovie />} />
       </Routes>
     </div>
   );

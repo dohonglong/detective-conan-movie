@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
-  Link,
   Table,
   TableBody,
   TableCell,
@@ -31,7 +31,7 @@ const ConanMovie = () => {
   }, []);
 
   return (
-    <div className="center">
+    <div className="home-container">
       <h1>Conan Movie</h1>
 
       {movies.length > 0 ? (
@@ -50,9 +50,9 @@ const ConanMovie = () => {
                   <TableCell align="center">{movie.movie}</TableCell>
                   <TableCell>
                     <Link
-                      href={`/movie/${movie.title}`}
+                      to={`/movie/${movie.movie}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      // rel="noopener noreferrer"
                     >
                       {movie.title}
                     </Link>

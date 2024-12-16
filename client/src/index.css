@@ -11,12 +11,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.center {
+/* For the homepage */
+.home-container {
   display: flex;
   flex-direction: column;
   align-items: center; /* Centers vertically */
   width: 80vw;
   /* height: 100vh; */
+}
+
+/* For specific movie page */
+.movie-container {
+  width: 70vw; /* Takes 70% of the screen width */
+  margin: 0 auto; /* Optional: Center horizontally */
+  text-align: justify; /* Optional: Center the content */
 }
 
 code {

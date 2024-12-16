@@ -3,6 +3,8 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
+const Movie = require("./models/MovieSchema");
 
 const app = express();
 app.use(cors());
@@ -17,7 +19,7 @@ app.get("/", (req, resp) => {
 });
 
 // To connect with your mongoDB database
-const mongoose = require("mongoose");
+
 mongoose
   .connect(`${process.env.MONGO_URI}`, {
     dbName: "detective_conan",
@@ -31,29 +33,10 @@ mongoose
     process.exit(1);
   });
 
-// MOVIE TABS
-//Schema for movies
-const MovieSchema = new mongoose.Schema({
-  number: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  original_title: {
-    type: String,
-    required: true,
-  },
-});
-const Movie = mongoose.model("Movie", MovieSchema);
-
-// API to fetch movies
+// API to FETCH movies
 app.get("/api/movies", async (req, res) => {
   try {
-    //console.log("Successfully connected to Atlas");
+    console.log("Successfully connected to Atlas");
     const movies = await Movie.find();
     //console.log(movies);
     res.json(movies);
@@ -63,43 +46,23 @@ app.get("/api/movies", async (req, res) => {
   }
 });
 
-// USERS TAB
-// Schema for users of app
-// const UserSchema = new mongoose.Schema({
-//   name: {
-//     type: String,
-//     required: true,
-//   },
-//   email: {
-//     type: String,
-//     required: true,
-//     unique: true,
-//   },
-//   date: {
-//     type: Date,
-//     default: Date.now,
-//   },
-// });
-// const User = mongoose.model("users", UserSchema);
-// User.createIndexes();
-
-// // This is for register part
-// app.post("/register", async (req, resp) => {
-//   try {
-//     const user = new User(req.body);
-//     let result = await user.save();
-//     result = result.toObject();
-//     if (result) {
-//       delete result.password;
-//       resp.send(req.body);
-//       console.log(result);
-//     } else {
-//       console.log("User already register");
-//     }
-//   } catch (e) {
-//     resp.send("Something Went Wrong");
-//   }
-// });
+// API to GET movies
+app.get("/api/movie/:id", async (req, res) => {
+  try {
+    //console.log("Request Params:", req.params.id);
+    const movieId = parseInt(req.params.id);
+    //console.log("Movie ID = ", movieId);
+    const movie = await Movie.findById(movieId);
+    if (!movie) {
+      return res.status(404).json({ error: "Movie not found" });
+    }
+    //console.log("Backend Response:", movie); // Log the full response
+    res.json(movie);
+  } catch (error) {
+    console.error(error.stack);
+    res.status(500).json({ error: "Error fetching movie details" });
+  }
+});
 
 app.listen(5000, () => {
   console.log("App listening at port 5000");
