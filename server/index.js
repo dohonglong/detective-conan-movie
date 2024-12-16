@@ -48,12 +48,11 @@ app.get("/api/movies", async (req, res) => {
 });
 
 // API to FETCH ONE movie by ID
-app.get("/api/movie/:id", async (req, res) => {
+app.get("/api/movie/:movie_ID", async (req, res) => {
   try {
-    //console.log("Request Params:", req.params.id);
-    const movieId = parseInt(req.params.id);
-    //console.log("Movie ID = ", movieId);
-    const movie = await Movie.findOne({ _id: movieId })
+    //console.log("Request Params:", req.params.movie);
+    const movieTitle = req.params.movie_ID;
+    const movie = await Movie.findOne({ movie_ID: movieTitle })
       .populate("characters")
       .exec();
     //console.log(movie.characters);
@@ -80,11 +79,11 @@ app.get("/api/characters", async (req, res) => {
 });
 
 // API to FETCH a single character by ID with populated movies
-app.get("/api/character/:id", async (req, res) => {
+app.get("/api/character/:character_ID", async (req, res) => {
   try {
-    //console.log("Request Params:", req.params.id);
-    const characterId = parseInt(req.params.id); // Parse the ID as an integer
-    const character = await Character.findOne({ _id: characterId })
+    //console.log("Request Params:", req.params.character_ID);
+    const characterName = req.params.character_ID;
+    const character = await Character.findOne({ character_ID: characterName })
       .populate("movies")
       .exec();
 

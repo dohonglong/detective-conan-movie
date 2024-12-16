@@ -8,15 +8,15 @@ const App = () => {
     <div>
       <nav>
         <Link className="navBarLink" to="/movies_list">
-          Conan Movie
+          Movie
         </Link>
       </nav>
 
       <Routes>
         <Route path="/" element={<MovieListPage />} />
         <Route path="/movies_list" element={<MovieListPage />} />
-        <Route path="/movie/:movieID" element={<MoviePage />} />
-        <Route path="/character/:characterID" element={<CharacterPage />} />
+        <Route path="/movie/:movieTitle" element={<MoviePage />} />
+        <Route path="/character/:characterName" element={<CharacterPage />} />
       </Routes>
     </div>
   );

@@ -46,11 +46,11 @@ const MovieList = () => {
             </TableHead>
             <TableBody>
               {movies.map((movie) => (
-                <TableRow key={movie._id}>
+                <TableRow key={movie.movie_ID}>
                   <TableCell align="center">{movie._id}</TableCell>
                   <TableCell>
                     <Link
-                      to={`/movie/${movie._id}`}
+                      to={`/movie/${movie.movie}`}
                       //target="_blank"
                     >
                       {movie.title}

@@ -7,7 +7,7 @@ const MovieSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    movie: {
+    movie_ID: {
       type: String,
       required: true,
     },

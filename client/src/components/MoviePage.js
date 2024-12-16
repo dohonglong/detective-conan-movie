@@ -9,23 +9,24 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 const Movie = () => {
-  const { movieID } = useParams();
+  const { movieTitle } = useParams();
   const [movie, setMovie] = useState(null); // Store movie data
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
 
   useEffect(() => {
-    const ApiURL = process.env.REACT_APP_API_URL;
+    //const ApiURL = process.env.REACT_APP_API_URL;
     const fetchMovie = async () => {
       try {
         // Fetch the movie details by ID from the backend
-        const response = await fetch(`${ApiURL}/api/movie/${movieID}`);
+        const response = await fetch(
+          `http://localhost:5000/api/movie/${movieTitle}`
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch movie");
         }
         const data = await response.json();
-        //console.log("HELLO");
-        console.log(data);
+        //console.log(data);
         setMovie(data);
       } catch (err) {
         setError(err.message);
@@ -34,7 +35,7 @@ const Movie = () => {
       }
     };
     fetchMovie();
-  }, [movieID]);
+  }, [movieTitle]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -93,7 +94,7 @@ const Movie = () => {
       <h3 style={{ textAlign: "center" }}>Cast</h3>
 
       {movie.characters.map((character, index) => (
-        <Link key={index} to={`/character/${character._id}`}>
+        <Link key={index} to={`/character/${character.character_ID}`}>
           <div>{character.name}</div>
         </Link>
       ))}

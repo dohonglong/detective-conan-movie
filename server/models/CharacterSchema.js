@@ -7,6 +7,10 @@ const CharacterSchema = new mongoose.Schema(
       type: Number, // Use integers for `_id`
       required: true,
     },
+    character_ID: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
