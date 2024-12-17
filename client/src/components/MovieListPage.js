@@ -50,7 +50,7 @@ const MovieList = () => {
                   <TableCell align="center">{movie._id}</TableCell>
                   <TableCell>
                     <Link
-                      to={`/movie/${movie.movie}`}
+                      to={`/movie/${movie.movie_ID}`}
                       //target="_blank"
                     >
                       {movie.title}

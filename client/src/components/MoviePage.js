@@ -15,13 +15,11 @@ const Movie = () => {
   const [error, setError] = useState(null); // Error state
 
   useEffect(() => {
-    //const ApiURL = process.env.REACT_APP_API_URL;
+    const ApiURL = process.env.REACT_APP_API_URL;
     const fetchMovie = async () => {
       try {
         // Fetch the movie details by ID from the backend
-        const response = await fetch(
-          `http://localhost:5000/api/movie/${movieTitle}`
-        );
+        const response = await fetch(`${ApiURL}/api/movie/${movieTitle}`);
         if (!response.ok) {
           throw new Error("Failed to fetch movie");
         }
