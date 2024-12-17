@@ -1,34 +1,37 @@
-// SCHEMA FOR THE CHARACTERS
 const mongoose = require("mongoose");
 
-const CharacterSchema = new mongoose.Schema(
-  {
-    _id: {
-      type: Number, // Use integers for `_id`
-      required: true,
-    },
-    character_ID: {
-      type: String,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    age: { type: String },
-    gender: { type: String },
-    date_of_birth: { type: String },
-    status: { type: String }, // e.g., alive, deceased
-    movies: [
-      {
-        type: Number,
-        ref: "Movie", // Reference to the Movie schema
-      },
-    ],
+const CharacterSchema = new mongoose.Schema({
+  _id: {
+    type: Number,
+    required: true,
   },
-  {
-    versionKey: false,
-  }
-);
+  character_ID: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  name: {
+    type: String,
+  },
+  age: {
+    type: String,
+  },
+  gender: {
+    type: String,
+  },
+  date_of_birth: {
+    type: String,
+  },
+  status: {
+    type: String,
+    default: "Unknown", // Default to "unknown" if status is not provided
+  },
+  movies: [
+    {
+      type: Number, // Matches the `_id` type in the Movie collection
+      ref: "Movie", // References the Movie collection
+    },
+  ],
+});
 
 module.exports = mongoose.model("Character", CharacterSchema);

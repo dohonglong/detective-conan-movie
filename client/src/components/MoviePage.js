@@ -46,13 +46,8 @@ const Movie = () => {
         <Table>
           <TableBody>
             <TableRow>
-              <TableCell
-                colSpan={2}
-                align="center"
-                variant="head"
-                style={{ fontWeight: "bold" }}
-              >
-                Movie {movie._id}
+              <TableCell colSpan={2} align="center" variant="head">
+                <h2>Movie {movie._id}</h2>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -61,13 +56,8 @@ const Movie = () => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell
-                colSpan={2}
-                align="center"
-                variant="head"
-                style={{ fontWeight: "bold" }}
-              >
-                Information
+              <TableCell colSpan={2} align="center" variant="head">
+                <h2>Information</h2>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -85,6 +75,20 @@ const Movie = () => {
             <TableRow>
               <TableCell variant="head">Orignial Airdate</TableCell>
               <TableCell>{movie.release_date}</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell
+                colSpan={2}
+                align="center"
+                variant="head"
+                style={{ padding: 0 }}
+              >
+                <h2>Music</h2>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell variant="head">Theme Song</TableCell>
+              <TableCell>{movie.theme_song.artist}</TableCell>
             </TableRow>
           </TableBody>
         </Table>
