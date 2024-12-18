@@ -24,7 +24,11 @@ const MoviePage = ({ movie }) => {
             </TableRow>
             <TableRow>
               <TableCell colSpan={2} align="center">
-                <img src={movie.poster_url} alt="poster" height={500} />
+                <img
+                  src={movie.poster_url}
+                  alt="poster"
+                  className="responsive-poster"
+                />
               </TableCell>
             </TableRow>
             <TableRow>

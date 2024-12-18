@@ -1,7 +1,7 @@
 .App {
   background-image: linear-gradient(to right, #007fef, #4da5f3, #80bff7);
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .navBarLink {
@@ -28,6 +28,12 @@
   margin: 0 auto; /* Optional: Center horizontally */
   text-align: justify; /* Optional: Center the content */
   padding: 40px 0 30px 0; /* Just leave that for now */
+}
+
+.responsive-poster {
+  width: 70%;
+  max-width: 300px;
+  height: auto;
 }
 
 /* For small screens (like phones) */
