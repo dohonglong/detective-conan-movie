@@ -2,14 +2,13 @@ import { Routes, Route, Link } from "react-router-dom";
 import MovieListPage from "./components/MovieListPage";
 import MoviePage from "./components/MoviePage";
 import CharacterPage from "./components/CharacterPage";
+import "./App.css";
 
 const App = () => {
   return (
-    <div>
-      <nav>
-        <Link className="navBarLink" to="/movies_list">
-          Movie
-        </Link>
+    <div className="App">
+      <nav className="navBarLink">
+        <Link to="/movies_list">Movie</Link>
       </nav>
 
       <Routes>
