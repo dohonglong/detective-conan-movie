@@ -16,7 +16,7 @@ const Movie = () => {
 
   return (
     <div className="movie-container">
-      <h1 style={{ textAlign: "center" }}>{movie.title}</h1>
+      <img src={movie.logo} alt="logo" className="responsive-movie-logo" />
       <p>{movie.overview}</p>
 
       <MoviePageTable movie={movie} />

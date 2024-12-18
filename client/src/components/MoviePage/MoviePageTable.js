@@ -64,7 +64,7 @@ const MoviePage = ({ movie }) => {
                 variant="head"
                 style={{ padding: 0 }}
               >
-                <h2>Music</h2>
+                <h2>Media</h2>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -93,31 +93,18 @@ const MoviePage = ({ movie }) => {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell
-                colSpan={2}
-                align="center"
-                variant="head"
-                style={{ padding: 0 }}
-              >
-                <h2>Logo and Trailer</h2>
+              <TableCell variant="head">Trailer</TableCell>
+              <TableCell>
+                <a
+                  href={`${YoutubeURL}${movie.trailer}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Official Trailer
+                </a>
               </TableCell>
             </TableRow>
-            <TableRow>
-              <TableCell colSpan={2} align="center">
-                <div>
-                  <img src={movie.logo} alt="logo" height={150} />
-                  <div style={{ padding: 10 }}>
-                    <a
-                      href={`${YoutubeURL}${movie.trailer}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Official Trailer
-                    </a>
-                  </div>
-                </div>
-              </TableCell>
-            </TableRow>
+            <TableRow></TableRow>
           </TableBody>
         </Table>
       </TableContainer>
