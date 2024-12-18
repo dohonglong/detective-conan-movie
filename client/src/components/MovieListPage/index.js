@@ -17,7 +17,11 @@ const MovieList = () => {
   return (
     <div className="home-container">
       <div className="logo">
-        <img src={Detective_Conan_logo} width={400} alt="Conan logo" />
+        <img
+          src={Detective_Conan_logo}
+          alt="Conan logo"
+          className="responsive-logo"
+        />
       </div>
       <MovieListTable movieList={movies} />
     </div>
