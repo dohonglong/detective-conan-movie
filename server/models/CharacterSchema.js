@@ -51,7 +51,7 @@ const CharacterSchema = new mongoose.Schema({
   occupations: {
     type: [String],
   },
-  nicknames: {
+  aliases: {
     type: [String],
   },
   movies: [
