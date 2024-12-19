@@ -25,10 +25,9 @@ const MoviePage = ({ movie }) => {
   };
   const descriptionText = {
     fontSize: "18px",
-    padding: "15px 0",
+    padding: "15px 0 5px 0",
     textAlign: "justify",
     fontStyle: "italic",
-    //fontWeight: "italic",
   };
   return (
     <Paper elevation={3}>
