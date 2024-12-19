@@ -54,7 +54,7 @@ const MovieListTable = ({ movieList }) => {
                     </Typography>
                   </TableCell>
                   <TableCell align="center" sx={{ padding: "10px" }}>
-                    <img src={movie.logo} alt="logo" width={100} />
+                    <img src={movie.logo} alt="logo" width={100} height={42} />
                   </TableCell>
                   <TableCell align="center">
                     <Typography variant="body1">
