@@ -14,6 +14,7 @@ const Character = () => {
   return (
     <div className="movie-container">
       <h1 style={{ textAlign: "center" }}> {character.name}</h1>
+      <img src={character.image_url} alt="Character" height={300} width={300} />
       <h3 style={{ textAlign: "center" }}> Movies appeared in</h3>
       {character.movies.map((movie, index) => (
         <Link key={index} to={`/movie/${movie.movie_ID}`}>

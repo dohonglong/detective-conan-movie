@@ -42,7 +42,10 @@ const CharacterSchema = new mongoose.Schema({
     type: String,
     default: " ",
   },
-  image_url: {
+  image_url_big: {
+    type: String,
+  },
+  image_url_icon: {
     type: String,
   },
   occupations: {
