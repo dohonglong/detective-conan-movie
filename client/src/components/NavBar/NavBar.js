@@ -63,7 +63,7 @@ const NavBar = () => {
       }}
     >
       <Typography variant="h5" sx={{ ...headerStyle, margin: "12px 0" }}>
-        CONAN MOVIES
+        DETECTIVE CONAN
       </Typography>
       <Divider sx={{ bgcolor: "white" }} />
       <List>
@@ -97,8 +97,12 @@ const NavBar = () => {
   return (
     <Box style={{ display: "flex" }}>
       {/* Only sx can work with display instead of style */}
-      <AppBar component="nav" position="static">
-        <Toolbar style={{ backgroundColor: "#0039a6" }}>
+      <AppBar
+        component="nav"
+        position="fixed"
+        sx={{ backgroundColor: "#0039a6" }}
+      >
+        <Toolbar>
           {/* The burger button */}
           <IconButton
             color="inherit"
@@ -123,7 +127,7 @@ const NavBar = () => {
               ...headerStyle,
             }}
           >
-            DETECTIVE CONAN - MOVIES
+            DETECTIVE CONAN
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {menus.map((menu) => (
