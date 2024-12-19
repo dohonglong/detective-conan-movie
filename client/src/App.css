@@ -1,19 +1,16 @@
 .App {
-  background-image: linear-gradient(to right, #007fef, #4da5f3, #80bff7);
+  background-image: linear-gradient(to right, #318ce7, #4da5f3, #80bff7);
   text-align: center;
   min-height: 100vh;
 }
 
-.navBarLink {
-  padding: 10px 0 0 0;
-}
 .logo {
   padding: 20px;
 }
-.responsive-logo {
-  width: 80%; /* Full width of container */
-  max-width: 400px; /* Set a max width */
-  height: auto; /* Maintain aspect ratio */
+
+/* For the NavBar */
+.hide-on-large {
+  display: none;
 }
 
 /* For the homepage */
@@ -22,18 +19,25 @@
   margin: 0px auto;
   padding: 40px 0 30px 0;
 }
-/* For specific movie page */
-.movie-container {
-  width: 70vw; /* Takes 70% of the screen width */
-  margin: 0 auto; /* Optional: Center horizontally */
-  text-align: justify; /* Optional: Center the content */
-  padding: 40px 0 30px 0; /* Just leave that for now */
-}
-.responsive-movie-logo {
+.responsive-home-logo {
   width: 80%; /* Full width of container */
   max-width: 400px; /* Set a max width */
   height: auto; /* Maintain aspect ratio */
+}
+
+/* For specific movie page */
+.movie-container {
+  width: 60vw;
+  margin: 0 auto;
+  text-align: justify;
+  padding: 40px 0 30px 0;
+}
+.responsive-movie-logo {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
   display: block;
+  padding-bottom: 20px;
   margin: 0 auto; /* Horizontally centers the image */
 }
 .responsive-poster {

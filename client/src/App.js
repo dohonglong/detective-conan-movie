@@ -1,15 +1,14 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import MovieListPage from "./components/MovieListPage";
 import MoviePage from "./components/MoviePage";
 import CharacterPage from "./components/CharacterPage";
 import "./App.css";
+import NavBar from "./components/NavBar/NavBar";
 
 const App = () => {
   return (
     <div className="App">
-      <nav className="navBarLink">
-        <Link to="/movies_list">Movie</Link>
-      </nav>
+      <NavBar />
 
       <Routes>
         <Route path="/" element={<MovieListPage />} />

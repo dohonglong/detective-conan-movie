@@ -17,7 +17,6 @@ const Movie = () => {
   return (
     <div className="movie-container">
       <img src={movie.logo} alt="logo" className="responsive-movie-logo" />
-      <p>{movie.overview}</p>
 
       <MoviePageTable movie={movie} />
 
