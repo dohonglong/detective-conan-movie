@@ -46,6 +46,19 @@
   max-width: 300px;
   height: auto;
 }
+.header-title-text {
+  color: white;
+  line-height: 1.5;
+}
+.header-text {
+  color: white;
+}
+.description-text {
+  font-size: 18px !important;
+  text-align: justify;
+  font-style: italic;
+  padding: 15px 0 5px 0;
+}
 
 /* For small screens (like phones) */
 @media (max-width: 550px) {

@@ -13,10 +13,18 @@ import {
 } from "@mui/material";
 
 const MovieListTable = ({ movieList }) => {
+  const tableHeaderStyle = {
+    padding: "10px 0",
+    backgroundColor: "#36454F",
+    color: "white",
+  };
+  const headerStyle = {
+    fontFamily: "monospace",
+    fontWeight: 700,
+  };
   const linkStyle = {
     color: "blue",
     fontWeight: "bold",
-    //textDecoration: "none",
   };
   const tableHeaders = ["Movie", "Title", "Logo", "Airdate"];
 
@@ -28,8 +36,16 @@ const MovieListTable = ({ movieList }) => {
             <TableHead>
               <TableRow>
                 {tableHeaders.map((header) => (
-                  <TableCell align="center" key={header}>
-                    <Typography variant="h6" fontWeight="bold">
+                  <TableCell
+                    align="center"
+                    key={header}
+                    style={tableHeaderStyle}
+                  >
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      style={headerStyle}
+                    >
                       {header}
                     </Typography>
                   </TableCell>

@@ -16,11 +16,10 @@ const url = `${process.env.MONGO_URI}`;
 
 // Check if the app is working or not
 app.get("/", (req, resp) => {
-  resp.send("HELLO, BB HÔM NAY TỚI CHƠI NÀY");
+  resp.send("ALO ALO CONNECT");
 });
 
 // To connect with your mongoDB database
-
 mongoose
   .connect(`${process.env.MONGO_URI}`, {
     dbName: "detective_conan",
