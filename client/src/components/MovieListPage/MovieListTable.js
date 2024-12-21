@@ -19,6 +19,7 @@ const MovieListTable = ({ movieList }) => {
     color: "white",
   };
   const headerStyle = {
+    fontSize: "18px",
     fontFamily: "monospace",
     fontWeight: 700,
   };

@@ -117,7 +117,7 @@ const MoviePage = ({ movie }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Official Trailer
+                  Detective Conan: {movie.title} - Trailer
                 </a>
               </TableCell>
             </TableRow>

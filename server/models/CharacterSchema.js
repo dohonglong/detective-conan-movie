@@ -51,6 +51,10 @@ const CharacterSchema = new mongoose.Schema({
   occupations: {
     type: [String],
   },
+  groups: {
+    type: [String],
+    default: "none",
+  },
   aliases: {
     type: [String],
   },

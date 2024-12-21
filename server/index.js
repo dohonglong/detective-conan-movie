@@ -11,9 +11,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Replace the following with your Atlas connection string
-const url = `${process.env.MONGO_URI}`;
-
 // Check if the app is working or not
 app.get("/", (req, resp) => {
   resp.send("ALO ALO CONNECT");
