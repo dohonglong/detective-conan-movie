@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
+  createTheme,
   //Box,
   Paper,
   Table,
@@ -9,8 +10,20 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  ThemeProvider,
   Typography,
 } from "@mui/material";
+
+const theme = createTheme();
+
+theme.typography.h6 = {
+  fontFamily: "monospace",
+  fontWeight: 700,
+  fontSize: "20px",
+  "@media (max-width:550px)": {
+    fontSize: "16px",
+  },
+};
 
 const MovieListTable = ({ movieList }) => {
   const tableHeaderStyle = {
@@ -18,11 +31,7 @@ const MovieListTable = ({ movieList }) => {
     backgroundColor: "#36454F",
     color: "white",
   };
-  const headerStyle = {
-    fontSize: "18px",
-    fontFamily: "monospace",
-    fontWeight: 700,
-  };
+
   const linkStyle = {
     color: "blue",
     fontWeight: "bold",
@@ -42,13 +51,11 @@ const MovieListTable = ({ movieList }) => {
                     key={header}
                     style={tableHeaderStyle}
                   >
-                    <Typography
-                      variant="h6"
-                      fontWeight="bold"
-                      style={headerStyle}
-                    >
-                      {header}
-                    </Typography>
+                    <ThemeProvider theme={theme}>
+                      <Typography variant="h6" fontWeight="bold">
+                        {header}
+                      </Typography>
+                    </ThemeProvider>
                   </TableCell>
                 ))}
               </TableRow>

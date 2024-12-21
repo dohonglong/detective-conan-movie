@@ -53,7 +53,7 @@ const CharacterSchema = new mongoose.Schema({
   },
   groups: {
     type: [String],
-    default: "none",
+    default: "None",
   },
   aliases: {
     type: [String],
