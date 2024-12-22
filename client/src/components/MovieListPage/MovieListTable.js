@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 
 const theme = createTheme();
-
 theme.typography.h6 = {
   fontFamily: "monospace",
   fontWeight: 700,

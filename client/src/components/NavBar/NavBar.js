@@ -27,7 +27,7 @@ const menus = [
   {
     icon: <Person />,
     name: "Characters",
-    link: "/",
+    link: "/character_list",
   },
 ];
 

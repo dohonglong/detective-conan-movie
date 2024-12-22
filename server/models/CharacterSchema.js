@@ -18,25 +18,31 @@ const CharacterSchema = new mongoose.Schema({
   },
   age: {
     type: String,
+    default: "unknown",
   },
   gender: {
     type: String,
+    default: "unknown",
   },
   height: {
     type: String,
+    default: "unknown",
   },
   weight: {
     type: String,
+    default: "unknown",
   },
   date_of_birth: {
     type: String,
+    default: "unknown",
   },
   nationality: {
     type: String,
+    default: "unknown",
   },
   status: {
     type: String,
-    default: "Unknown", // Default to "unknown" if status is not provided
+    default: "unknown",
   },
   description: {
     type: String,
@@ -50,13 +56,15 @@ const CharacterSchema = new mongoose.Schema({
   },
   occupations: {
     type: [String],
+    default: "unknown",
   },
   groups: {
     type: [String],
-    default: "None",
+    default: "none",
   },
   aliases: {
     type: [String],
+    default: "none",
   },
   movies: [
     {

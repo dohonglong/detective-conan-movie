@@ -8,12 +8,12 @@
   padding: 20px;
 }
 
-/* For the NavBar */
+/* FOR THE NAVBAR */
 .hide-on-large {
   display: none;
 }
 
-/* For the homepage */
+/* FOR THE HOMEPAGE */
 .home-container {
   width: 80vw;
   margin: 0px auto;
@@ -26,9 +26,11 @@
   padding-bottom: 10px;
 }
 
-/* For specific movie page */
-.movie-container {
+/* FOR SPECIFIC MOVIE PAGE */
+.movie-container,
+.character-container {
   width: 60vw;
+  max-width: 100%;
   margin: 0 auto;
   text-align: justify;
   padding: 90px 0 40px 0;
@@ -41,15 +43,18 @@
   padding-bottom: 20px;
   margin: 0 auto; /* Horizontally centers the image */
 }
-.responsive-poster {
+.responsive-movie-poster {
   width: 70%;
   max-width: 300px;
   height: auto;
 }
-.header-title-text {
+/* For info table part */
+.header-title-character,
+.header-title-movie {
   color: white;
   line-height: 1.5;
 }
+/* Use for both movie and character page */
 .header-text {
   color: white;
 }
@@ -59,13 +64,74 @@
   font-style: italic;
   padding: 15px 0 5px 0;
 }
+.media-link {
+  color: blue !important;
+}
+/* For cast part */
+.header-title-cast,
+.header-movie-featured {
+  background-color: #36454f;
+  color: white;
+  padding: 10px 0;
+}
 
-/* For small screens (like phones) */
+.character-cast-grid,
+.movie-featured-grid {
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f6f6;
+  padding: 15px 0;
+}
+.character-cast-card {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.character-cast-name,
+.movie-featured-name {
+  color: blue;
+  padding-top: 5px;
+}
+
+/* FOR SPECIFIC CHARACTER PAGE */
+.responsive-character-poster {
+  width: 60%;
+  min-width: 300px;
+}
+/* For movies featured page */
+.movie-featured-card {
+  width: 250px;
+  height: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+/* FOR MIDDLE SCREENS (tablets) */
+@media (max-width: 768px) {
+  .home-container {
+    width: 80vw;
+  }
+  .movie-container,
+  .character-container {
+    width: 80vw;
+  }
+}
+/* FOR SMALL SCREENS (like phones) */
 @media (max-width: 550px) {
   .home-container {
     width: 100vw;
   }
-  .movie-container {
+  .movie-container,
+  .character-container {
     width: 100vw;
   }
 }
