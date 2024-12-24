@@ -20,8 +20,6 @@ app.get("/", (req, resp) => {
 mongoose
   .connect(`${process.env.MONGO_URI}`, {
     dbName: "detective_conan",
-    // serverSelectionTimeoutMS: 30000, // 30 seconds
-    // socketTimeoutMS: 45000, // 45 seconds
     autoIndex: false,
   })
   .then(() => console.log("Connected to Conan Movie database"))
@@ -33,9 +31,7 @@ mongoose
 // API to FETCH all movies with populated characters
 app.get("/api/movies", async (req, res) => {
   try {
-    //console.log("Successfully connected to Atlas");
     const movies = await Movie.find().populate("characters").exec();
-    //console.log(movies);
     res.json(movies);
   } catch (error) {
     console.log(error.stack); // Log error only on the backend
@@ -46,16 +42,13 @@ app.get("/api/movies", async (req, res) => {
 // API to FETCH ONE movie by ID
 app.get("/api/movie/:movie_ID", async (req, res) => {
   try {
-    //console.log("Request Params:", req.params.movie);
     const movieTitle = req.params.movie_ID;
     const movie = await Movie.findOne({ movie_ID: movieTitle })
       .populate("characters")
       .exec();
-    //console.log(movie.characters);
     if (!movie) {
       return res.status(404).json({ error: "Movie not found" });
     }
-    //console.log("Backend Response:", movie); // Log the full response
     res.json(movie);
   } catch (error) {
     console.error(error.stack);
@@ -77,16 +70,13 @@ app.get("/api/characters", async (req, res) => {
 // API to FETCH a single character by ID with populated movies
 app.get("/api/character/:character_ID", async (req, res) => {
   try {
-    //console.log("Request Params:", req.params.character_ID);
     const characterName = req.params.character_ID;
     const character = await Character.findOne({ character_ID: characterName })
       .populate("movies")
       .exec();
-
     if (!character) {
       return res.status(404).json({ error: "Character not found" });
     }
-
     res.json(character);
   } catch (error) {
     console.error(error.stack);

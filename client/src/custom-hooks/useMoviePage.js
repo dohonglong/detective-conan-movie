@@ -17,7 +17,6 @@ const useMoviePage = () => {
           throw new Error("Failed to fetch movie");
         }
         const data = await response.json();
-        //console.log(data);
         setMovie(data);
       } catch (err) {
         setError(err.message);

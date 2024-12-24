@@ -12,9 +12,7 @@ const useMovieListPage = () => {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        //console.log(data);
         setMovies(data);
-        //console.log(movies);
       } catch (error) {
         setError(error);
       } finally {

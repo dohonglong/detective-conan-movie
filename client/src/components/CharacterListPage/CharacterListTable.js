@@ -47,21 +47,16 @@ const CharacterListTable = ({ characterList }) => {
   //Table sort
   const [sortBy, setSortBy] = useState("");
   const [sortDirection, setSortDirection] = useState("asc");
-
   const createSortHandler = (header) => {
     const isAsc = sortBy === header && sortDirection === "asc";
     setSortBy(header);
     setSortDirection(isAsc ? "desc" : "asc");
   };
-
   const sortedCharacterList = [...characterList].sort((a, b) => {
     if (!sortBy) return 0;
-
     const valueA = a[sortBy.toLowerCase()];
     const valueB = b[sortBy.toLowerCase()];
-
     if (valueA === valueB) return 0;
-
     if (sortDirection === "asc") {
       return valueA > valueB ? 1 : -1;
     } else {

@@ -19,7 +19,6 @@ const useCharacterPage = () => {
           throw new Error("Failed to fetch character");
         }
         const data = await response.json();
-        //console.log(data);
         setCharacter(data);
       } catch (error) {
         setError(error.message);
