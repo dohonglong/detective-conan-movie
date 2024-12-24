@@ -1,5 +1,3 @@
-import React from "react";
-
 import useMovieListPage from "../../custom-hooks/useMovieListPage";
 import MovieListTable from "./MovieListTable";
 import Detective_Conan_logo from "../Logo/Detective_Conan_logo.png";

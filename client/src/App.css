@@ -16,8 +16,9 @@
 /* FOR THE HOMEPAGE */
 .home-container {
   width: 80vw;
+  max-width: 100%;
   margin: 0px auto;
-  padding: 90px 0 40px 0;
+  padding: 80px 0 50px 0;
 }
 .responsive-home-logo {
   width: 80%; /* Full width of container */
@@ -33,7 +34,7 @@
   max-width: 100%;
   margin: 0 auto;
   text-align: justify;
-  padding: 90px 0 40px 0;
+  padding-top: 80px;
 }
 .responsive-movie-logo {
   width: 80%;

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import {
   createTheme,
@@ -14,7 +13,8 @@ import {
   Typography,
 } from "@mui/material";
 
-const theme = createTheme();
+// MAKE THE THEME GLOBAL
+export const theme = createTheme();
 theme.typography.h6 = {
   fontFamily: "monospace",
   fontWeight: 700,
@@ -35,7 +35,12 @@ const MovieListTable = ({ movieList }) => {
     color: "blue",
     fontWeight: "bold",
   };
-  const tableHeaders = ["Movie", "Title", "Logo", "Airdate"];
+  const tableHeaders = [
+    { header: "Movie", width: "10%" },
+    { header: "Title", width: "40%" },
+    { header: "Logo", width: "30%" },
+    { header: "Airdate", width: "20%" },
+  ];
 
   return (
     <Paper elevation={3}>
@@ -47,12 +52,13 @@ const MovieListTable = ({ movieList }) => {
                 {tableHeaders.map((header) => (
                   <TableCell
                     align="center"
-                    key={header}
+                    key={header.header}
+                    width={header.width}
                     style={tableHeaderStyle}
                   >
                     <ThemeProvider theme={theme}>
                       <Typography variant="h6" fontWeight="bold">
-                        {header}
+                        {header.header}
                       </Typography>
                     </ThemeProvider>
                   </TableCell>
