@@ -36,11 +36,11 @@ const CharacterListTable = ({ characterList }) => {
   const tableHeaders = [
     { header: " " },
     { header: "Name" },
-    { header: "Aliases", width: "20%" },
-    { header: "Gender", width: "10%" },
-    { header: "Nationality", width: "10%" },
+    { header: "Aliases", width: "15%" },
+    { header: "Gender", width: "5%" },
+    { header: "Nationality", width: "15%" },
     { header: "Status", width: "10%" },
-    { header: "Groups", width: "15%" },
+    { header: "Groups", width: "20%" },
     { header: "Appearances", width: "10%" },
   ];
 
@@ -54,8 +54,15 @@ const CharacterListTable = ({ characterList }) => {
   };
   const sortedCharacterList = [...characterList].sort((a, b) => {
     if (!sortBy) return 0;
-    const valueA = a[sortBy.toLowerCase()];
-    const valueB = b[sortBy.toLowerCase()];
+    let valueA, valueB;
+    // Special case for movie appearances
+    if (sortBy.toLowerCase() === "appearances") {
+      valueA = a.movies.length;
+      valueB = b.movies.length;
+    } else {
+      valueA = a[sortBy.toLowerCase()];
+      valueB = b[sortBy.toLowerCase()];
+    }
     if (valueA === valueB) return 0;
     if (sortDirection === "asc") {
       return valueA > valueB ? 1 : -1;
