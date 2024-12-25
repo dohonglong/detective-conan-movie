@@ -12,7 +12,7 @@ const CharacterList = () => {
     return <p>Something went wrong. Can't load the character page.</p>;
   }
   return (
-    <div className="home-container">
+    <div className="home-character-container">
       <div className="logo">
         <img
           src={Detective_Conan_logo}

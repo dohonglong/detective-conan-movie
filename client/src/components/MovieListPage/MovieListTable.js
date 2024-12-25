@@ -73,17 +73,20 @@ const MovieListTable = ({ movieList }) => {
                   </TableCell>
                   <TableCell align="left">
                     <Typography variant="body1">
-                      <Link
-                        to={`/movie/${movie.movie_ID}`}
-                        style={linkStyle}
-                        //target="_blank"
-                      >
+                      <Link to={`/movie/${movie.movie_ID}`} style={linkStyle}>
                         {movie.title}
                       </Link>
                     </Typography>
                   </TableCell>
                   <TableCell align="center" sx={{ padding: "10px" }}>
-                    <img src={movie.logo} alt="logo" width={100} height={42} />
+                    <Link to={`/movie/${movie.movie_ID}`}>
+                      <img
+                        src={movie.logo}
+                        alt="logo"
+                        width={100}
+                        height={42}
+                      />
+                    </Link>
                   </TableCell>
                   <TableCell align="center">
                     <Typography variant="body1">

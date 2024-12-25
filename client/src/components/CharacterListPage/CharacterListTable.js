@@ -11,8 +11,6 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import CircleIcon from "@mui/icons-material/Circle";
-
 // Get this from the movie table list
 import { theme } from "../MovieListPage/MovieListTable";
 import { useState } from "react";
@@ -28,19 +26,12 @@ const CharacterListTable = ({ characterList }) => {
     color: "blue",
     fontWeight: "bold",
   };
-  const statusStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: 5,
-  };
   const tableHeaders = [
     { header: " " },
     { header: "Name" },
     { header: "Aliases", width: "15%" },
-    { header: "Gender", width: "5%" },
-    { header: "Nationality", width: "15%" },
-    { header: "Status", width: "10%" },
-    { header: "Groups", width: "20%" },
+    { header: "Gender", width: "15%" },
+    { header: "Groups", width: "30%" },
     { header: "Appearances", width: "10%" },
   ];
 
@@ -82,7 +73,7 @@ const CharacterListTable = ({ characterList }) => {
                 <TableCell
                   align="center"
                   colSpan={2}
-                  style={{ ...tableHeaderStyle, width: "25%" }}
+                  style={{ ...tableHeaderStyle, width: "30%" }}
                 >
                   <ThemeProvider theme={theme}>
                     <Typography variant="h6" fontWeight="bold">
@@ -166,29 +157,6 @@ const CharacterListTable = ({ characterList }) => {
                   </TableCell>
                   <TableCell align="center">
                     <Typography variant="body1">{character.gender}</Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="body1">
-                      {character.nationality}
-                    </Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    {character.status === "Alive" ? (
-                      <Typography variant="body1" style={statusStyle}>
-                        <CircleIcon style={{ color: "#6EC531" }} />
-                        {character.status}
-                      </Typography>
-                    ) : character.status === "Dead" ? (
-                      <Typography variant="body1" style={statusStyle}>
-                        <CircleIcon style={{ color: "red" }} />
-                        {character.status}
-                      </Typography>
-                    ) : (
-                      <Typography variant="body1" style={statusStyle}>
-                        <CircleIcon />
-                        {character.status}
-                      </Typography>
-                    )}
                   </TableCell>
                   <TableCell align="left">
                     {character.groups.map((group) => (

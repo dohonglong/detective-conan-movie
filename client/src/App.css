@@ -14,8 +14,9 @@
 }
 
 /* FOR THE HOMEPAGE */
-.home-container {
-  width: 80vw;
+.home-container,
+.home-character-container {
+  width: 70vw;
   max-width: 100%;
   margin: 0px auto;
   padding: 80px 0 50px 0;
@@ -121,16 +122,20 @@
   .home-container {
     width: 80vw;
   }
-  .movie-container {
-    width: 80vw;
+  .home-character-container {
+    width: 85vw;
   }
+  .movie-container,
   .character-container {
-    width: 90vw;
+    width: 80vw;
   }
 }
 /* FOR SMALL SCREENS (like phones) */
 @media (max-width: 550px) {
   .home-container {
+    width: 100vw;
+  }
+  .home-character-container {
     width: 100vw;
   }
   .movie-container,
