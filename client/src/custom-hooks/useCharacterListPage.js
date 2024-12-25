@@ -12,6 +12,7 @@ const useCharacterListPage = () => {
       try {
         const response = await fetch(url);
         const data = await response.json();
+        console.log(data);
         setCharacters(data);
       } catch (error) {
         setError(error);

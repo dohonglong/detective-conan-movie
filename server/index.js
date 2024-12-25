@@ -59,7 +59,10 @@ app.get("/api/movie/:movie_ID", async (req, res) => {
 // API to FETCH all characters
 app.get("/api/characters", async (req, res) => {
   try {
-    const characters = await Character.find().populate("movies").exec();
+    const characters = await Character.find()
+      .sort({ _id: 1 })
+      .populate("movies")
+      .exec();
     res.json(characters);
   } catch (error) {
     console.error(error.stack);
