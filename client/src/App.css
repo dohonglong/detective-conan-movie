@@ -116,14 +116,16 @@
   padding-bottom: 5px;
 }
 
-/* FOR MIDDLE SCREENS (tablets) */
-@media (max-width: 768px) {
+/* FOR MIDDLE SCREENS */
+@media (max-width: 1200px) {
   .home-container {
     width: 80vw;
   }
-  .movie-container,
-  .character-container {
+  .movie-container {
     width: 80vw;
+  }
+  .character-container {
+    width: 90vw;
   }
 }
 /* FOR SMALL SCREENS (like phones) */
