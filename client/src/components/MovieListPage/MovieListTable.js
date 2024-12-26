@@ -30,11 +30,6 @@ const MovieListTable = ({ movieList }) => {
     backgroundColor: "#36454F",
     color: "white",
   };
-
-  const linkStyle = {
-    color: "blue",
-    fontWeight: "bold",
-  };
   const tableHeaders = [
     { header: "Movie", width: "10%" },
     { header: "Title", width: "40%" },
@@ -73,7 +68,10 @@ const MovieListTable = ({ movieList }) => {
                   </TableCell>
                   <TableCell align="left">
                     <Typography variant="body1">
-                      <Link to={`/movie/${movie.movie_ID}`} style={linkStyle}>
+                      <Link
+                        to={`/movie/${movie.movie_ID}`}
+                        className="movie-table-link"
+                      >
                         {movie.title}
                       </Link>
                     </Typography>

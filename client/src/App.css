@@ -7,6 +7,9 @@
 .logo {
   padding: 20px;
 }
+.MuiTableRow-root {
+  padding: 0;
+}
 
 /* FOR THE NAVBAR */
 .hide-on-large {
@@ -26,6 +29,26 @@
   max-width: 400px; /* Set a max width */
   height: auto; /* Maintain aspect ratio */
   padding-bottom: 10px;
+}
+.movie-table-link {
+  color: blue;
+  font-weight: bold !important;
+}
+.character-table-link {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: blue;
+  font-weight: bold !important;
+}
+.character-table-icon {
+  display: block;
+}
+.character-table-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 /* FOR SPECIFIC MOVIE PAGE */
@@ -116,14 +139,13 @@
   text-align: center;
   padding-bottom: 5px;
 }
-
 /* FOR MIDDLE SCREENS */
 @media (max-width: 1200px) {
   .home-container {
     width: 80vw;
   }
   .home-character-container {
-    width: 85vw;
+    width: 80vw;
   }
   .movie-container,
   .character-container {
@@ -141,5 +163,8 @@
   .movie-container,
   .character-container {
     width: 100vw;
+  }
+  .character-table-icon {
+    display: none;
   }
 }

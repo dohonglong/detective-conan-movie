@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import {
+  Box,
   Paper,
   Table,
   TableBody,
@@ -11,6 +12,7 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
+import CircleIcon from "@mui/icons-material/Circle";
 // Get this from the movie table list
 import { theme } from "../MovieListPage/MovieListTable";
 import { useState } from "react";
@@ -21,20 +23,12 @@ const CharacterListTable = ({ characterList }) => {
     backgroundColor: "#36454F",
     color: "white",
   };
-
-  const linkStyle = {
-    color: "blue",
-    fontWeight: "bold",
-  };
   const tableHeaders = [
-    { header: " " },
-    { header: "Name" },
-    { header: "Aliases", width: "15%" },
-    { header: "Gender", width: "15%" },
-    { header: "Groups", width: "30%" },
-    { header: "Appearances", width: "10%" },
+    { header: "Name", width: "40%" },
+    { header: "Gender", width: "20%" },
+    { header: "Movies", width: "20%" },
+    { header: "Status", width: "20%" },
   ];
-
   //Table sort
   const [sortBy, setSortBy] = useState("");
   const [sortDirection, setSortDirection] = useState("asc");
@@ -47,7 +41,7 @@ const CharacterListTable = ({ characterList }) => {
     if (!sortBy) return 0;
     let valueA, valueB;
     // Special case for movie appearances
-    if (sortBy.toLowerCase() === "appearances") {
+    if (sortBy.toLowerCase() === "movies") {
       valueA = a.movies.length;
       valueB = b.movies.length;
     } else {
@@ -69,23 +63,8 @@ const CharacterListTable = ({ characterList }) => {
           <Table>
             <TableHead>
               <TableRow>
-                {/* Colspan Cell */}
-                <TableCell
-                  align="center"
-                  colSpan={2}
-                  style={{ ...tableHeaderStyle, width: "30%" }}
-                >
-                  <ThemeProvider theme={theme}>
-                    <Typography variant="h6" fontWeight="bold">
-                      Name
-                    </Typography>
-                  </ThemeProvider>
-                </TableCell>
-                {/* Remaining headers */}
-                {tableHeaders.slice(2).map((header) => {
-                  const isSortable = !["Aliases", "Groups"].includes(
-                    header.header
-                  );
+                {tableHeaders.map((header) => {
+                  const isSortable = !["Name"].includes(header.header);
                   return (
                     <TableCell
                       align="center"
@@ -95,21 +74,35 @@ const CharacterListTable = ({ characterList }) => {
                     >
                       <ThemeProvider theme={theme}>
                         {isSortable ? (
-                          <TableSortLabel
-                            active={sortBy === header.header}
-                            direction={sortDirection}
-                            onClick={() => createSortHandler(header.header)}
-                            sx={{
-                              color: "white !important",
-                              "& .MuiTableSortLabel-icon": {
-                                color: "white !important",
-                              },
+                          <Box
+                            style={{
+                              position: "relative",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
                             }}
                           >
-                            <Typography variant="h6" fontWeight="bold">
-                              {header.header}
-                            </Typography>
-                          </TableSortLabel>
+                            <TableSortLabel
+                              active={sortBy === header.header}
+                              direction={sortDirection}
+                              onClick={() => createSortHandler(header.header)}
+                              sx={{
+                                "& .MuiTableSortLabel-icon": {
+                                  position: "absolute",
+                                  right: -25,
+                                  color: "white !important",
+                                },
+                              }}
+                            >
+                              <Typography
+                                variant="h6"
+                                fontWeight="bold"
+                                color="white"
+                              >
+                                {header.header}
+                              </Typography>
+                            </TableSortLabel>
+                          </Box>
                         ) : (
                           <Typography variant="h6" fontWeight="bold">
                             {header.header}
@@ -124,50 +117,46 @@ const CharacterListTable = ({ characterList }) => {
             <TableBody>
               {sortedCharacterList.map((character) => (
                 <TableRow key={character.character_ID}>
-                  <TableCell align="center">
-                    <Typography variant="body1">
-                      <Link
-                        to={`/character/${character.character_ID}`}
-                        style={linkStyle}
-                      >
-                        <img
-                          src={character.image_url_icon}
-                          width={60}
-                          alt="Character Icon"
-                        />
-                      </Link>
-                    </Typography>
-                  </TableCell>
                   <TableCell align="left">
                     <Typography variant="body1">
                       <Link
                         to={`/character/${character.character_ID}`}
-                        style={linkStyle}
+                        className="character-table-link"
                       >
+                        <img
+                          src={character.image_url_icon}
+                          width={50}
+                          alt="Character Icon"
+                          className="character-table-icon"
+                        />
                         {character.name}
                       </Link>
                     </Typography>
                   </TableCell>
-                  <TableCell align="left">
-                    {character.aliases.map((alias) => (
-                      <Typography variant="body1" key={alias}>
-                        {alias}
-                      </Typography>
-                    ))}
-                  </TableCell>
                   <TableCell align="center">
                     <Typography variant="body1">{character.gender}</Typography>
                   </TableCell>
-                  <TableCell align="left">
-                    {character.groups.map((group) => (
-                      <Typography variant="body1" key={group}>
-                        {group}
-                      </Typography>
-                    ))}
-                  </TableCell>
                   <TableCell align="center">
                     <Typography variant="body1">
-                      {character.movies.length} movies
+                      {character.movies.length}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="center">
+                    <Typography
+                      variant="body1"
+                      className="character-table-status"
+                    >
+                      <CircleIcon
+                        style={{
+                          color:
+                            character.status === "Alive"
+                              ? "#6EC531"
+                              : character.status === "Dead"
+                              ? "red"
+                              : "inherit",
+                        }}
+                      />
+                      {character.status}
                     </Typography>
                   </TableCell>
                 </TableRow>
