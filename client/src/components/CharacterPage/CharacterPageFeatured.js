@@ -21,6 +21,7 @@ const CharacterPageFeatured = ({ character }) => {
               <img
                 src={movie.poster_url}
                 width={250}
+                height={375}
                 alt="Movie featured poster"
               />
               <Typography className="movie-featured-name">

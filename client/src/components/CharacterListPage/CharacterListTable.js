@@ -89,7 +89,7 @@ const CharacterListTable = ({ characterList }) => {
                               sx={{
                                 "& .MuiTableSortLabel-icon": {
                                   position: "absolute",
-                                  right: -25,
+                                  right: -20,
                                   color: "white !important",
                                 },
                               }}
