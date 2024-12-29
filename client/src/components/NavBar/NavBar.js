@@ -22,12 +22,12 @@ const menus = [
   {
     icon: <Movie />,
     name: "Movies",
-    link: "/movies_list",
+    link: "/movies",
   },
   {
     icon: <Person />,
     name: "Characters",
-    link: "/character_list",
+    link: "/characters",
   },
 ];
 
@@ -38,14 +38,14 @@ const NavBar = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const headerStyle = {
+  const navBarStyle = {
     fontFamily: "monospace",
     fontWeight: 700,
-    color: "inherit",
+    color: "white",
     textDecoration: "none",
   };
   const menuStyle = {
-    ...headerStyle,
+    ...navBarStyle,
     display: "flex",
     alignItems: "center",
     gap: 1,
@@ -62,9 +62,12 @@ const NavBar = () => {
         height: "100vh",
       }}
     >
-      <Typography variant="h5" sx={{ ...headerStyle, margin: "12px 0" }}>
-        DETECTIVE CONAN
+      <Typography variant="h5" sx={{ margin: "12px 0" }}>
+        <Link to="/" style={navBarStyle}>
+          DETECTIVE CONAN
+        </Link>
       </Typography>
+
       <Divider sx={{ bgcolor: "white" }} />
       <List>
         {menus.map((menu) => (
@@ -114,6 +117,7 @@ const NavBar = () => {
             <Menu />
           </IconButton>
           {/* The menu bar */}
+
           <Typography
             variant="h6"
             align="left"
@@ -124,11 +128,13 @@ const NavBar = () => {
                 xs: "none",
                 sm: "block",
               },
-              ...headerStyle,
             }}
           >
-            DETECTIVE CONAN
+            <Link to="/" style={navBarStyle}>
+              DETECTIVE CONAN
+            </Link>
           </Typography>
+
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {menus.map((menu) => (
               <Link to={`${menu.link}`} key={menu.name}>
