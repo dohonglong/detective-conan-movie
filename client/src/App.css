@@ -117,10 +117,13 @@
   text-align: center;
 }
 
-.character-cast-name,
-.movie-featured-name {
+.character-cast-name {
   color: blue;
   padding-top: 5px;
+}
+.movie-featured-name {
+  color: blue;
+  padding-top: 10px;
 }
 
 /* FOR SPECIFIC CHARACTER PAGE */
@@ -130,14 +133,13 @@
 }
 /* For movies featured page */
 .movie-featured-card {
-  width: 250px;
-  height: 410px;
+  width: 150px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-bottom: 5px;
 }
 /* FOR MIDDLE SCREENS */
 @media (max-width: 1200px) {
