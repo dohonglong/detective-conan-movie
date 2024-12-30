@@ -19,9 +19,9 @@ const CharacterPageFeatured = ({ character }) => {
           <Link key={index} to={`/movie/${movie.movie_ID}`}>
             <Card key={index} elevation={3} className="movie-featured-card">
               <img
-                src={movie.logo}
-                width={100}
-                height={50}
+                src={movie.poster_url}
+                width={150}
+                height={225}
                 alt="Movie featured poster"
               />
               <Typography className="movie-featured-name">
