@@ -78,12 +78,7 @@ const MovieListTable = ({ movieList }) => {
                   </TableCell>
                   <TableCell align="center" sx={{ padding: "10px" }}>
                     <Link to={`/movie/${movie.movie_ID}`}>
-                      <img
-                        src={movie.logo}
-                        alt="logo"
-                        width={100}
-                        height={42}
-                      />
+                      <img src={movie.logo} alt="logo" width={95} height={40} />
                     </Link>
                   </TableCell>
                   <TableCell align="center">
