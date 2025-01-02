@@ -25,7 +25,7 @@ const ScrollToTopButton = () => {
   return (
     isVisible && (
       <div onClick={scrollToTop} className="scroll-to-top">
-        <ExpandCircleDownIcon className="scroll-to-top-button" />;
+        <ExpandCircleDownIcon className="scroll-to-top-button" />
       </div>
     )
   );
