@@ -5,12 +5,12 @@ import MoviePage from "./components/MoviePage";
 import CharacterPage from "./components/CharacterPage";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
+import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton";
 
 const App = () => {
   return (
     <div className="App">
       <NavBar />
-
       <Routes>
         <Route path="/" element={<MovieListPage />} />
         <Route path="/movies" element={<MovieListPage />} />
@@ -18,6 +18,7 @@ const App = () => {
         <Route path="/movie/:movieTitle" element={<MoviePage />} />
         <Route path="/character/:characterName" element={<CharacterPage />} />
       </Routes>
+      <ScrollToTopButton />
     </div>
   );
 };

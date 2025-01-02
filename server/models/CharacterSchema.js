@@ -66,6 +66,10 @@ const CharacterSchema = new mongoose.Schema({
     type: [String],
     default: "none",
   },
+  types: {
+    type: [String],
+    default: "none",
+  },
   movies: [
     {
       type: Number, // Matches the `_id` type in the Movie collection

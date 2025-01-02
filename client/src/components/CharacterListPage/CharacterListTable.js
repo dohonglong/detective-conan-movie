@@ -13,6 +13,8 @@ import {
   Typography,
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
+import MaleIcon from "@mui/icons-material/Male";
+import FemaleIcon from "@mui/icons-material/Female";
 // Get this from the movie table list
 import { theme } from "../MovieListPage/MovieListTable";
 import { useState } from "react";
@@ -134,7 +136,21 @@ const CharacterListTable = ({ characterList }) => {
                     </Typography>
                   </TableCell>
                   <TableCell align="center">
-                    <Typography variant="body1">{character.gender}</Typography>
+                    <Typography
+                      variant="body1"
+                      className="character-gender-status"
+                    >
+                      {character.gender === "Male" ? (
+                        <>
+                          <MaleIcon color="primary" /> {character.gender}
+                        </>
+                      ) : (
+                        <>
+                          <FemaleIcon style={{ color: "#FF00FF" }} />
+                          {character.gender}
+                        </>
+                      )}
+                    </Typography>
                   </TableCell>
                   <TableCell align="center">
                     <Typography variant="body1">
@@ -144,7 +160,7 @@ const CharacterListTable = ({ characterList }) => {
                   <TableCell align="center">
                     <Typography
                       variant="body1"
-                      className="character-table-status"
+                      className="character-gender-status"
                     >
                       <CircleIcon
                         style={{
@@ -165,7 +181,7 @@ const CharacterListTable = ({ characterList }) => {
           </Table>
         </TableContainer>
       ) : (
-        <h2> Loading character list... </h2>
+        <h2> No character matches your input. Please try again. </h2>
       )}
     </Paper>
   );

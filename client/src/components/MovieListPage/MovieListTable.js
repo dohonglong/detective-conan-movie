@@ -97,7 +97,7 @@ const MovieListTable = ({ movieList }) => {
           </Table>
         </TableContainer>
       ) : (
-        <p>Loading movieList... </p>
+        <h2> No movie matches your input. Please try again.</h2>
       )}
     </Paper>
   );

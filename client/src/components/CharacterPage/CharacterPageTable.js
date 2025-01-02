@@ -8,6 +8,9 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
+import CircleIcon from "@mui/icons-material/Circle";
+import MaleIcon from "@mui/icons-material/Male";
+import FemaleIcon from "@mui/icons-material/Female";
 // IMPORT HEADER CELL AND COLUMN FROM THE MOVIE PAGE FILE
 import { HeaderCell, HeaderColumn } from "../MoviePage/MoviePageTable";
 
@@ -67,7 +70,23 @@ const CharacterPage = ({ character }) => {
             </TableRow>
             <TableRow>
               <HeaderColumn variant="head">Gender</HeaderColumn>
-              <TableCell>{character.gender}</TableCell>
+              <TableCell>
+                <Typography
+                  variant="body1"
+                  className="character-detail-gender-status"
+                >
+                  {character.gender === "Male" ? (
+                    <>
+                      <MaleIcon color="primary" /> {character.gender}
+                    </>
+                  ) : (
+                    <>
+                      <FemaleIcon style={{ color: "#FF00FF" }} />
+                      {character.gender}
+                    </>
+                  )}
+                </Typography>
+              </TableCell>
             </TableRow>
             <TableRow>
               <HeaderColumn variant="head">Height</HeaderColumn>
@@ -104,7 +123,24 @@ const CharacterPage = ({ character }) => {
 
             <TableRow>
               <HeaderColumn variant="head">Status</HeaderColumn>
-              <TableCell>{character.status}</TableCell>
+              <TableCell>
+                <Typography
+                  variant="body1"
+                  className="character-detail-gender-status"
+                >
+                  <CircleIcon
+                    style={{
+                      color:
+                        character.status === "Alive"
+                          ? "#6EC531"
+                          : character.status === "Dead"
+                          ? "red"
+                          : "inherit",
+                    }}
+                  />
+                  {character.status}
+                </Typography>
+              </TableCell>
             </TableRow>
           </TableBody>
         </Table>

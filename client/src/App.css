@@ -44,11 +44,26 @@
 .character-table-icon {
   display: block;
 }
-.character-table-status {
+.character-gender-status {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
+}
+.search-and-filter {
+  background-color: #f4f6f6;
+}
+/* SCROLL TO TOP BUTTON */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.scroll-to-top-button {
+  transform: rotate(180deg);
+  font-size: 60px !important;
+  color: #36454f;
 }
 
 /* FOR SPECIFIC MOVIE PAGE */
@@ -127,6 +142,12 @@
 .responsive-character-poster {
   width: 50%;
   min-width: 300px;
+}
+.character-detail-gender-status {
+  display: flex;
+  font-size: 14px !important;
+  align-items: center;
+  gap: 5px;
 }
 /* For movies featured page */
 .movie-featured-card {
