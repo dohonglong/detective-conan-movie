@@ -5,6 +5,7 @@ import {
   Select,
   MenuItem,
   Grid2,
+  Divider,
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import MaleIcon from "@mui/icons-material/Male";
@@ -17,23 +18,6 @@ const CharacterSearchAndFilter = ({
   handleTypeChange,
 }) => {
   const characterMenuFilters = [
-    { types: "", name: "All" },
-    {
-      types: "Male",
-      name: (
-        <div className="character-gender-status">
-          Male <MaleIcon color="primary" />
-        </div>
-      ),
-    },
-    {
-      types: "Female",
-      name: (
-        <div className="character-gender-status">
-          Female <FemaleIcon style={{ color: "#FF00FF" }} />
-        </div>
-      ),
-    },
     { types: "Protagonists", name: "Protagonists" },
     { types: "Detective_Boys", name: "Detective Boys" },
     { types: "Family_Friends", name: "Family & Friends" },
@@ -47,22 +31,6 @@ const CharacterSearchAndFilter = ({
     { types: "NPA_PSB", name: "NPA & PSB" },
     { types: "F5", name: "Police Academy" },
     { types: "Celebrity", name: "Celebrity" },
-    {
-      types: "Alive",
-      name: (
-        <div className="character-gender-status">
-          Alive <CircleIcon style={{ color: "#6EC531" }} />
-        </div>
-      ),
-    },
-    {
-      types: "Dead",
-      name: (
-        <div className="character-gender-status">
-          Dead <CircleIcon style={{ color: "red" }} />
-        </div>
-      ),
-    },
   ];
   return (
     <Grid2
@@ -90,11 +58,27 @@ const CharacterSearchAndFilter = ({
             onChange={handleTypeChange}
             label="Filter"
           >
+            <MenuItem value="">All</MenuItem>
+            <Divider />
+            <MenuItem className="character-gender-status" value="Male">
+              Male <MaleIcon color="primary" />
+            </MenuItem>
+            <MenuItem className="character-gender-status" value="Female">
+              Female <FemaleIcon style={{ color: "#FF00FF" }} />
+            </MenuItem>
+            <Divider />
             {characterMenuFilters.map((filter) => (
               <MenuItem key={filter.types} value={filter.types}>
                 {filter.name}
               </MenuItem>
             ))}
+            <Divider />
+            <MenuItem className="character-gender-status" value="Alive">
+              Alive <CircleIcon style={{ color: "#6EC531" }} />
+            </MenuItem>
+            <MenuItem className="character-gender-status" value="Dead">
+              Dead <CircleIcon style={{ color: "red" }} />
+            </MenuItem>
           </Select>
         </FormControl>
       </Grid2>
