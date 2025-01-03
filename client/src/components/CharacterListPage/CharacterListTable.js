@@ -142,17 +142,12 @@ const CharacterListTable = ({ characterList }) => {
                     >
                       {character.gender === "Male" ? (
                         <>
-                          <MaleIcon
-                            color="primary"
-                            sx={{ display: { xs: "none", sm: "block" } }}
-                          />{" "}
-                          {character.gender}
+                          <MaleIcon color="primary" /> {character.gender}
                         </>
                       ) : (
                         <>
                           <FemaleIcon
                             sx={{
-                              display: { xs: "none", sm: "block" },
                               color: "#FF00FF",
                             }}
                           />
