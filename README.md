@@ -32,6 +32,6 @@ https://detective-conan-movie-1.onrender.com/
 - The Movie Database (TMDB)
   
 ## Screenshots
-<img src="https://github.com/user-attachments/assets/a85c5637-b3c9-404f-a28d-e04d386a93c9" alt="Homepage" width="32%" />&nbsp;&nbsp;<img src="https://github.com/user-attachments/assets/988b786f-866c-44e0-af8c-bd8ca5a35b16" alt="Movie detail" width="32%" />&nbsp;&nbsp;<img src="https://github.com/user-attachments/assets/359d5a17-1963-4c1c-a588-bb19fb86a184" alt="Cast" width="32%" />
+<img src="https://github.com/user-attachments/assets/a85c5637-b3c9-404f-a28d-e04d386a93c9" alt="Homepage" width="32%" />&nbsp;<img src="https://github.com/user-attachments/assets/988b786f-866c-44e0-af8c-bd8ca5a35b16" alt="Movie detail" width="32%" />&nbsp;<img src="https://github.com/user-attachments/assets/359d5a17-1963-4c1c-a588-bb19fb86a184" alt="Cast" width="32%" />
 
-<img src="https://github.com/user-attachments/assets/87568490-9250-43fa-bc89-7d0ad2e9ffa7" alt="Character list" width="32%" />&nbsp;&nbsp;<img src="https://github.com/user-attachments/assets/7fc1c859-7a43-42cf-a27f-bd2a4a2e7e0b" alt="Character detail" width="32%" />&nbsp;&nbsp;<img src="https://github.com/user-attachments/assets/f3877199-6bc1-414f-afd8-b20497997de4" alt="Movie featured" width="32%" />
+<img src="https://github.com/user-attachments/assets/87568490-9250-43fa-bc89-7d0ad2e9ffa7" alt="Character list" width="32%" />&nbsp;<img src="https://github.com/user-attachments/assets/7fc1c859-7a43-42cf-a27f-bd2a4a2e7e0b" alt="Character detail" width="32%" />&nbsp;<img src="https://github.com/user-attachments/assets/f3877199-6bc1-414f-afd8-b20497997de4" alt="Movie featured" width="32%" />
