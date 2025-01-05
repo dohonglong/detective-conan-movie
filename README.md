@@ -144,4 +144,8 @@ Make sure to set up the following environment variables:
 
 ### Why isn't the frontend connecting to the backend?
 
-- Check if the backend is running on the correct port `http://localhost:5000` and that API endpoints are configured properly.
+- Check if the backend is running on the correct port (`http://localhost:5000`) and that API endpoints are configured properly.
+
+## Support
+
+If you encounter any issues, feel free to contact me at [dohonglong1998@gmail.com].
