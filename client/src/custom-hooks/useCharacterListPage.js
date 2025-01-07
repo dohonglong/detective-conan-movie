@@ -7,7 +7,7 @@ const useCharacterListPage = () => {
 
   useEffect(() => {
     const ApiURL = process.env.REACT_APP_API_URL;
-    const url = "http://localhost:5000/api/characters";
+    const url = `${ApiURL}/api/characters`;
     const fetchCharacters = async () => {
       try {
         const response = await fetch(url);
