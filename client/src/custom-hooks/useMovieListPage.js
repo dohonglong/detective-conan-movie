@@ -7,7 +7,7 @@ const useMovieListPage = () => {
 
   useEffect(() => {
     const ApiURL = process.env.REACT_APP_API_URL;
-    const url = `${ApiURL}/api/movies`;
+    const url = "http://localhost:5000/api/movies";
     const fetchMovies = async () => {
       try {
         const response = await fetch(url);

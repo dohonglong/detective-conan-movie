@@ -31,7 +31,10 @@ mongoose
 // API to FETCH all movies with populated characters
 app.get("/api/movies", async (req, res) => {
   try {
-    const movies = await Movie.find().populate("characters").exec();
+    const movies = await Movie.find()
+      .sort({ _id: 1 })
+      .populate("characters")
+      .exec();
     res.json(movies);
   } catch (error) {
     console.log(error.stack); // Log error only on the backend
